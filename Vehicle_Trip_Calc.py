@@ -26,7 +26,7 @@ def gallons_used(total_miles: float, actual_mpg: float) -> float:
     '''
     Function to obtain gallons used requiring total miles and actual mpg as input, gallons used is returned as output.
     '''
-    return total_miles / actual_mpg
+    return float(total_miles / actual_mpg)
 
 
 def fuel_required(total_miles, actual_mpg):

@@ -23,6 +23,9 @@ class Vehicle:
 
 
 def gallons_used(total_miles, actual_mpg):
+    '''
+    Function to obtain gallons used requiring total miles and actual mpg as input, gallons used is returned as output.
+    '''
     return total_miles / actual_mpg
 
 

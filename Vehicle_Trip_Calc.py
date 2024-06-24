@@ -39,48 +39,50 @@ def total_carbon(total_miles, actual_mpg):
 
 
 if __name__ == '__main__':
+    try:
+        while True:
+            print('New Vehicle? Any Input for Yes or N/No:')
+            new_vehicle = input()
+            if new_vehicle == 'N' or new_vehicle == 'n' or new_vehicle == 'No' or new_vehicle == 'no':
+                sys.exit()
+            else:
+                Vehicle1 = Vehicle()
+                print('Enter Automobile Style:')
+                Vehicle1.Auto_Style = str(input())
+                print('Enter Automobile Make:')
+                Vehicle1.Make = str(input())
+                print('Enter Automobile Model:')
+                Vehicle1.Model = str(input())
+                print('Enter Automobile Color:')
+                Vehicle1.Color = str(input())
+                print('Enter Automobile Gas Tank Capacity:')
+                Vehicle1.Amount_Tank = float(input())
+                print('Enter EPA MPG Estimation:')
+                Vehicle1.Epa_Mpg = float(input())
+                print('Enter Actual MPG:')
+                Vehicle1.Actual_Mpg = float(input())
+                print('Enter Number of Wheels:')
+                Vehicle1.Number_Wheels = int(input())
+                print('Enter Number of Doors:')
+                Vehicle1.Number_Doors = int(input())
+                print('Enter Total Miles Traveled:')
+                Vehicle1.Total_Miles = float(input())
+                print('Enter Total Length of Trip:')
+                Vehicle1.Total_Length = float(input())
 
-    while True:
-        print('New Vehicle? Any Input for Yes or N/No:')
-        new_vehicle = input()
-        if new_vehicle == 'N' or new_vehicle == 'n' or new_vehicle == 'No' or new_vehicle == 'no':
-            sys.exit()
-        else:
-            Vehicle1 = Vehicle()
-            print('Enter Automobile Style:')
-            Vehicle1.Auto_Style = str(input())
-            print('Enter Automobile Make:')
-            Vehicle1.Make = str(input())
-            print('Enter Automobile Model:')
-            Vehicle1.Model = str(input())
-            print('Enter Automobile Color:')
-            Vehicle1.Color = str(input())
-            print('Enter Automobile Gas Tank Capacity:')
-            Vehicle1.Amount_Tank = float(input())
-            print('Enter EPA MPG Estimation:')
-            Vehicle1.Epa_Mpg = float(input())
-            print('Enter Actual MPG:')
-            Vehicle1.Actual_Mpg = float(input())
-            print('Enter Number of Wheels:')
-            Vehicle1.Number_Wheels = int(input())
-            print('Enter Number of Doors:')
-            Vehicle1.Number_Doors = int(input())
-            print('Enter Total Miles Traveled:')
-            Vehicle1.Total_Miles = float(input())
-            print('Enter Total Length of Trip:')
-            Vehicle1.Total_Length = float(input())
+                # Perform Calculations for Output:
+                var_gallons = gallons_used(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
+                var_miles = fuel_required(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
+                var_tanks = tanks_consumed(Vehicle1.Total_Miles, Vehicle1.Amount_Tank)
+                var_carbon = total_carbon(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
 
-            # Perform Calculations for Output:
-            var_gallons = gallons_used(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
-            var_miles = fuel_required(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
-            var_tanks = tanks_consumed(Vehicle1.Total_Miles, Vehicle1.Amount_Tank)
-            var_carbon = total_carbon(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
-
-            print(f'{Vehicle1.Make} {Vehicle1.Model} '
-                  f'has used {var_gallons} gallons of fuel')
-            print(f'{Vehicle1.Make} {Vehicle1.Model} '
-                  f'has {var_miles} miles left before fuel is needed')
-            print(f'{Vehicle1.Make} {Vehicle1.Model} '
-                  f'has consumed {var_tanks} tanks of fuel')
-            print(f'{Vehicle1.Make} {Vehicle1.Model} '
-                  f'has emitted {var_carbon} of carbon')
+                print(f'{Vehicle1.Make} {Vehicle1.Model} '
+                      f'has used {var_gallons} gallons of fuel')
+                print(f'{Vehicle1.Make} {Vehicle1.Model} '
+                      f'has {var_miles} miles left before fuel is needed')
+                print(f'{Vehicle1.Make} {Vehicle1.Model} '
+                      f'has consumed {var_tanks} tanks of fuel')
+                print(f'{Vehicle1.Make} {Vehicle1.Model} '
+                      f'has emitted {var_carbon} of carbon')
+    except SyntaxError:
+        print(f'Syntax Error has occured')

@@ -84,5 +84,9 @@ if __name__ == '__main__':
                       f'has consumed {var_tanks} tanks of fuel')
                 print(f'{Vehicle1.Make} {Vehicle1.Model} '
                       f'has emitted {var_carbon} of carbon')
+                
     except SyntaxError as err:
         print(f'Syntax Error has occured: {err}')
+
+    except TypeError as err:
+        print(f'Type Error has occured: {err}')

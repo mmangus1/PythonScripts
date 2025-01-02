@@ -1,9 +1,10 @@
-# CPGM120-01 SP24
+ # CPGM120-01 SP24
 # Matthew Mangus
 # Mar. 17, 2024
 # Assignment number 5
 # Takes Vehicle and Trip Information and Calculates Required Output
 # In-Line comments
+# Updated last: Jan. 1, 2025
 
 import sys
 
@@ -23,30 +24,63 @@ class Vehicle:
 
 
 def gallons_used(total_miles: float, actual_mpg: float) -> float:
-    '''
-    Function to obtain gallons used requiring total miles and actual mpg as input, gallons used is returned as output.
-    '''
+    """
+    Function to obtain gallons used requiring
+    total miles and actual mpg as input,
+    gallons used is returned as output.
+    """
     return float(total_miles / actual_mpg)
 
 
-def fuel_required(total_miles, actual_mpg):
+def fuel_required(total_miles: float, actual_mpg: float) -> float:
+    """
+    Function to obtain fuel required taking
+    total miles and actual mpg as input,
+    gallons of fuel is returned as output.
+    :param total_miles:
+    :param actual_mpg:
+    :return:
+    """
     return (total_miles / actual_mpg) / (total_miles * 100)
 
 
-def tanks_consumed(total_miles, amount_tank):
+def tanks_consumed(total_miles: float, amount_tank: float) -> float:
+    """
+    Function to obtain tanks of fuel consumed taking
+    total miles and amount of gallons per tank,
+    returning tanks consumed as output.
+    :param total_miles:
+    :param amount_tank:
+    :return:
+    """
     return total_miles / amount_tank
 
 
-def total_carbon(total_miles, actual_mpg):
+def total_carbon(total_miles: float, actual_mpg: float) -> float:
+    """
+    Function to obtain total carbon emitted taking
+    total miles and actual mpg as input,
+    returning total carbon emitted as output.
+    :param total_miles:
+    :param actual_mpg:
+    :return:
+    """
     return (total_miles / actual_mpg) * 20
 
 
-if __name__ == '__main__':
+def main():
+    """
+    Main function to orchestrate program flow.
+    :return:
+    """
     try:
         while True:
             print('New Vehicle? Any Input for Yes or N/No:')
             new_vehicle = input()
-            if new_vehicle == 'N' or new_vehicle == 'n' or new_vehicle == 'No' or new_vehicle == 'no':
+            if (new_vehicle == 'N'
+                    or new_vehicle == 'n'
+                    or new_vehicle == 'No'
+                    or new_vehicle == 'no'):
                 sys.exit()
             else:
                 Vehicle1 = Vehicle()
@@ -74,10 +108,14 @@ if __name__ == '__main__':
                 Vehicle1.Total_Length = float(input())
 
                 # Perform Calculations for Output:
-                var_gallons = gallons_used(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
-                var_miles = fuel_required(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
-                var_tanks = tanks_consumed(Vehicle1.Total_Miles, Vehicle1.Amount_Tank)
-                var_carbon = total_carbon(Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
+                var_gallons = gallons_used(
+                    Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
+                var_miles = fuel_required(
+                    Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
+                var_tanks = tanks_consumed(
+                    Vehicle1.Total_Miles, Vehicle1.Amount_Tank)
+                var_carbon = total_carbon(
+                    Vehicle1.Total_Miles, Vehicle1.Actual_Mpg)
 
                 print(f'{Vehicle1.Make} {Vehicle1.Model} '
                       f'has used {var_gallons} gallons of fuel')
@@ -87,9 +125,13 @@ if __name__ == '__main__':
                       f'has consumed {var_tanks} tanks of fuel')
                 print(f'{Vehicle1.Make} {Vehicle1.Model} '
                       f'has emitted {var_carbon} of carbon')
-                
+
     except SyntaxError as err:
-        print(f'Syntax Error has occured: {err}')
+        print(f'Syntax Error has occurred: {err}')
 
     except TypeError as err:
-        print(f'Type Error has occured: {err}')
+        print(f'Type Error has occurred: {err}')
+
+
+if __name__ == '__main__':
+    main()

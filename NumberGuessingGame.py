@@ -5,7 +5,7 @@
 
 import random
 import tkinter as tk
-from tkinter import Label, Entry, Button
+from tkinter import Label, Entry, Button, messagebox
 
 
 class MainApplication(tk.Frame):
@@ -60,11 +60,15 @@ def main():
     Main function to orchestrate program flow
     :return:
     """
-    root = tk.Tk()
-    root.title("Number Guessing Game")
-    root.geometry("1024x768")
-    MainApplication(root).pack(side="top", fill="both", expand=True)
-    root.mainloop()
+    try:
+        root = tk.Tk()
+        root.title("Number Guessing Game")
+        root.geometry("1024x768")
+        MainApplication(root).pack(side="top", fill="both", expand=True)
+        root.mainloop()
+    except Exception as e:
+        messagebox.showerror(f'Error has occurred {e}')
+
 
 if __name__ == "__main__":
     main()

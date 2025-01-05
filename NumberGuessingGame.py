@@ -9,13 +9,14 @@ from tkinter import Label, Entry, Button, messagebox
 
 
 class MainApplication(tk.Frame):
-    def __init__(self, parent, *args, **kwargs):
+    def __init__(self, parent, *args, **kwargs) -> None:
         """
         Create graphical interface
         :param parent:
         :param args:
         :param kwargs:
         """
+
         tk.Frame.__init__(self, parent, *args, **kwargs)
         self.parent = parent
         self.label = Label(self)
@@ -35,16 +36,16 @@ class MainApplication(tk.Frame):
         self.button.pack(side="top", fill="both")
         self.label2.pack(side="top", fill="both")
 
-    def genandcomp(self):
+    def genandcomp(self) -> None:
         """
         Generate and compare guesses, when button is hit
         :return:
         """
-        randomint = random.randint(1, 10)
+        randomint: int = random.randint(1, 10)
         try:
             if int(self.entry.get()) > 10:
                 raise ValueError()
-            guess = self.entry.get()
+            guess: int = int(self.entry.get())
             if randomint == guess:
                 self.label2.config(text="Guess is correct!")
             else:
@@ -55,7 +56,7 @@ class MainApplication(tk.Frame):
             self.label2.config(text="Not an integer from 1 to 10.")
 
 
-def main():
+def main() -> None:
     """
     Main function to orchestrate program flow
     :return:

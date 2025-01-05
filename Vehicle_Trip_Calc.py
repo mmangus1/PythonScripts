@@ -1,10 +1,10 @@
- # CPGM120-01 SP24
+# CPGM120-01 SP24
 # Matthew Mangus
 # Mar. 17, 2024
 # Assignment number 5
 # Takes Vehicle and Trip Information and Calculates Required Output
 # In-Line comments
-# Updated last: Jan. 1, 2025
+# Updated last: Jan. 5, 2025
 
 import sys
 
@@ -25,58 +25,72 @@ class Vehicle:
 
 def gallons_used(total_miles: float, actual_mpg: float) -> float:
     """
-    Function to obtain gallons used requiring
-    total miles and actual mpg as input,
-    gallons used is returned as output.
+    Function to obtain gallons used by dividing total miles by actual mpg.
+
+    Parameters:
+        total_miles (float): Total miles of trip.
+        actual_mpg (float): Actual miles per gallon.
+
+    Returns:
+        float: Gallons of fuel used.
     """
     return float(total_miles / actual_mpg)
 
 
 def fuel_required(total_miles: float, actual_mpg: float) -> float:
     """
-    Function to obtain fuel required taking
-    total miles and actual mpg as input,
-    gallons of fuel is returned as output.
-    :param total_miles:
-    :param actual_mpg:
-    :return:
+    Function to obtain fuel required by dividing total miles by actual mpg
+    then dividing that by total miles multiplied by 100.
+
+    Parameters:
+        total_miles (float): Total miles of trip.
+        actual_mpg (float): Actual miles per gallon.
+
+    Returns:
+        float: Gallons of fuel required.
     """
     return (total_miles / actual_mpg) / (total_miles * 100)
 
 
 def tanks_consumed(total_miles: float, amount_tank: float) -> float:
     """
-    Function to obtain tanks of fuel consumed taking
-    total miles and amount of gallons per tank,
-    returning tanks consumed as output.
-    :param total_miles:
-    :param amount_tank:
-    :return:
+    Function to obtain tanks of fuel consumed obtained by dividing total miles
+    by the gallon amount of tank.
+
+    Parameters:
+        total_miles (float): The total miles of trip.
+        amount_tank (float): Amount of gallons per tank.
+
+    Returns:
+        float: Number of tanks consumed over trip.
     """
     return total_miles / amount_tank
 
 
 def total_carbon(total_miles: float, actual_mpg: float) -> float:
     """
-    Function to obtain total carbon emitted taking
-    total miles and actual mpg as input,
-    returning total carbon emitted as output.
-    :param total_miles:
-    :param actual_mpg:
-    :return:
+    Function to obtain total carbon emitted by dividing total miles by actual
+    miles per gallon.
+
+    Parameters:
+        total_miles (float): Total miles travelled.
+        actual_mpg (float): Actual miles per gallon.
+
+    Returns:
+        float: Amount of carbon produced.
     """
     return (total_miles / actual_mpg) * 20
 
 
-def main():
+def main() -> None:
     """
-    Main function to orchestrate program flow.
-    :return:
+    Main function to orchestrate program flow and help with error handling.
+
     """
     try:
         while True:
             print('New Vehicle? Any Input for Yes or N/No:')
-            new_vehicle = input()
+            new_vehicle:str = input()
             if (new_vehicle == 'N'
                     or new_vehicle == 'n'
                     or new_vehicle == 'No'
